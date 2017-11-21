@@ -1,0 +1,22 @@
+<div class="container">
+<table>
+    <tr>
+        <th>id цен</th>
+        <th>парафин</th>
+        <th>фитель</th>
+        <th>краситель</th>
+        <th>ароматизатор</th>
+        <th>   </th>
+    </tr>
+    {{#list}}
+    <tr>
+        <td>{{name}}</td>
+        <td class="th_align_right">{{wax}} грн</td>
+        <td class="th_align_right">{{wick}} грн</td>
+        <td class="th_align_right">{{diy}} грн</td>
+        <td class="th_align_right">{{aroma}} грн</td>
+        <td class="delete"><a href="/prices/delete?id={{id}}">x</a></td>
+    </tr>
+    {{/list}}
+</table>
+</div>

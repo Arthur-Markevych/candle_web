@@ -1,0 +1,23 @@
+{{>layout/header}}
+{{#report}}
+{{>layout/report}}
+{{/report}}
+
+<!-- input -->
+<div class="container">
+    <div class="add">
+        <form method="get" action="/costs/add">
+            <label for="name">Описание</label>
+            <input type="text" id="name" name="description" placeholder="Описание"  width="400px" required>
+            <label for="price">Сумма</label>
+            <input type="number" min="0.00" id="price" name="cash" max="5000.00" step="0.01" placeholder="грн" required>
+            <input type="submit" value="добавить">
+        </form>
+    </div>
+</div>
+<!-- input /-->
+
+{{#list.0}}
+{{>layout/forms/costs_table}}
+{{/list.0}}
+{{>layout/footer}}

@@ -1,0 +1,21 @@
+{{>layout/header}}
+{{#report}}
+{{>layout/report}}
+{{/report}}
+<!-- label form -->
+<div class="container">
+<div class="add">
+    <form method="get" action="/label/add">
+        <label for="name">Название</label>
+        <input type="text" id="name" name="name" placeholder="Назавание этикетки"  width="400px" required>
+        <label for="price">цена</label>
+        <input type="number" min="0.00" id="price" name="price" max="5000.00" step="0.1" placeholder="грн" required>
+        <input type="submit" value="добавить">
+    </form>
+</div>
+</div>
+<!-- label form /-->
+{{#list.0}}
+{{>layout/forms/label_table}}
+{{/list.0}}
+{{>layout/footer}}

@@ -1,0 +1,67 @@
+<div class="container">
+<table>
+    <tr>
+        <th class="name">Название       </th>
+        <th>Посуда</th>
+        <th>Этикетка</th>
+        <th>Упаковка</th>
+        <th class="th_less">ар</th>
+        <th class="th_less">кр</th>
+        <th class="weight_width">Вес</th>
+        <th class="price_width">Цена</th>
+        <th class="price_width">Продажа</th>
+        <th>шт</th>
+        <th></th>
+        <th></th>
+    </tr>
+    {{#list}}
+    <tr>
+        <form method="post" action="/candle/update">
+            <input type="number" name="id" value="{{id}}" style="display: none">
+        <td>{{name}}</td>
+        {{#glass}}
+        <td>{{glass.name}}</td>
+        {{/glass}}
+            {{^glass}}
+        <td class="minus">-</td>
+            {{/glass}}
+        {{#label}}
+        <td>{{label.name}}</td>
+        {{/label}}
+            {{^label}}
+        <td class="minus">-</td>
+            {{/label}}
+        {{#box}}
+        <td>{{box.name}}</td>
+        {{/box}}
+            {{^box}}
+        <td class="minus">-</td>
+            {{/box}}
+        {{#aroma}}
+        <td class="plus">+</td>
+        {{/aroma}}
+            {{^aroma}}
+        <td class="minus">-</td>
+            {{/aroma}}
+        {{#diy}}
+        <td class="plus">+</td>
+        {{/diy}}
+            {{^diy}}
+        <td class="minus">-</td>
+            {{/diy}}
+        <td class="th_align_right">{{weight}} г</td>
+
+        <td class="th_align_right costs">{{price}} грн</td>
+
+        <td class="th_align_right sale">{{outPrice}} грн</td>
+
+        <td><input type="number" name="quantity" class="quantity" min="0" max="1000" step="1" value="{{quantity}}"></td>
+
+        <td><input type="submit" class="update" value="up"> </td>
+
+        <td class="delete"><a href="/candle/delete?id={{id}}">x</a></td>
+        </form>
+    </tr>
+    {{/list}}
+</table>
+</div>

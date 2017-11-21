@@ -1,0 +1,17 @@
+<div class="container">
+    <table>
+    <tr>
+        <th>название упаковки</th>
+        <th>цена</th>
+        <th>   </th>
+    </tr>
+    {{#list}}
+    <tr>
+        <td>{{name}}</td>
+        <td class="th_align_right">{{price}} грн</td>
+        <td class="delete"><a href="/box/delete?id={{id}}">x</a></td>
+    </tr>
+    {{/list}}
+</table>
+</div>
+

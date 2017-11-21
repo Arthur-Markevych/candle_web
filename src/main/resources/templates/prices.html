@@ -1,0 +1,33 @@
+{{>layout/header}}
+{{#report}}
+{{>layout/report}}
+{{/report}}
+<!-- box form -->
+<div class="container">
+<div class="add">
+    <form method="get" action="/prices/add">
+        <label for="name">Название</label>
+        <input type="text" id="name" name="name" placeholder="индетификатор цен"  width="400px" required>
+
+        <label for="wax">парафин</label>
+        <input type="number" min="0.00" id="wax" name="wax" max="5000.00" step="0.1" placeholder="грн/кг" required>
+
+        <label for="wick">фитель</label>
+        <input type="number" min="0.00" id="wick" name="wick" max="5000.00" step="0.1" placeholder="грн" required>
+
+        <label for="diy">краситель</label>
+        <input type="number" min="0.00" id="diy" name="diy" max="5000.00" step="0.1" placeholder="грн" required>
+
+        <label for="aroma">ароматизатор</label>
+        <input type="number" min="0.00" id="aroma" name="aroma" max="5000.00" step="0.1" placeholder="грн" required>
+
+        <input type="submit" value="добавить">
+    </form>
+</div>
+</div>
+<!-- box form /-->
+{{#list.0}}
+{{>layout/forms/prices_table}}
+{{/list.0}}
+
+{{>layout/footer}}

@@ -1,0 +1,19 @@
+<div class="container">
+    <table>
+        <tr>
+            <th>Описание</th>
+            <th>Сумма</th>
+            <th>Дата</th>
+            <th>   </th>
+        </tr>
+        {{#list}}
+        <tr>
+            <td>{{description}}</td>
+            <td class="th_align_right">{{cash}} грн</td>
+            <td>{{dateView}}</td>
+            <td class="delete"><a href="/costs/delete?id={{id}}">x</a></td>
+        </tr>
+        {{/list}}
+    </table>
+</div>
+

@@ -1,0 +1,61 @@
+{{>layout/header}}
+{{#report}}
+{{>layout/report}}
+{{/report}}
+<!-- candle form -->
+<div class="container">
+    <form method="get" action="/candle/add">
+        <label for="name">Название</label>
+        <input type="text" name="name" id="name" placeholder="Введите назавание" required>
+
+        <label for="weight">вес</label>
+        <input type="number" name="weight" id="weight" min="0" max="10000" step="1" placeholder="вес" required>
+
+        <label for="quantity">количество</label>
+        <input type="number" name="quantity" id="quantity" class="quantity" min="0" max="100" step="1" placeholder="вес" value="1" required>
+
+        <div class="checkbox">
+            <input type="checkbox" name="diy">краситель
+            <input type="checkbox" name="aroma">ароматизатор
+        </div>
+
+        <div class="select">
+            <select name="label">
+                <option value="0" class="no_select">Нет этикетки</option>
+                {{#labels.0}}
+                {{>layout/selects/label_select}}
+                {{/labels.0}}
+            </select>
+
+            <select name="box">
+                <option value="0" class="no_select">Нет упаковки</option>
+                {{#boxes.0}}
+                {{>layout/selects/box_select}}
+                {{/boxes.0}}
+            </select>
+
+
+            <select name="glass">
+                <option value="0" class="no_select">Нет посуды</option>
+                {{#glasses.0}}
+                {{>layout/selects/glass_select}}
+                {{/glasses.0}}
+            </select>
+
+            <select name="prices" required>
+                {{#prices.0}}
+                {{>layout/selects/prices_select}}
+                {{/prices.0}}
+                {{^prices}}
+                <option class="error" value="0">требуется</option>
+                {{/prices}}
+            </select>
+            <input type="submit" value="добавить">
+        </div>
+    </form>
+</div>
+<!-- candle form /-->
+{{#list.0}}
+{{>layout/forms/candle_table}}
+{{/list.0}}
+{{>layout/footer}}

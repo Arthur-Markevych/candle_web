@@ -1,0 +1,225 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ebebeb;
+}
+
+header {
+    background: url(/img/header.jpg) no-repeat center top / cover;
+    height: 100px;
+    margin-bottom: 15px;
+}
+
+.container {
+    width: 850px;
+    margin: 0 auto;
+    position: relative;
+    min-width: 850px;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+.logo {
+    margin-top: 40px;
+    float: left;
+    width: 100px;
+}
+
+nav {
+    float: right;
+    margin-top: 40px;
+}
+
+.menu {
+    padding: 0;
+    margin: 0;
+    display: block;
+}
+
+.menu li {
+    float: left;
+    display: block;
+    margin-right: 40px;
+}
+
+.menu li a {
+    color: #fff;
+    text-decoration: none;
+    /*    text-transform: uppercase;*/
+}
+
+.menu>li>a:hover {
+    color:blanchedalmond;
+}
+
+/* add */
+
+input[type=number] {
+    width: 80px;
+    padding-right: 0;
+}
+
+input,
+select {
+    padding: 8px 20px;
+    margin: 8px 8px 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: center;
+}
+select {
+    cursor: pointer;
+}
+
+select .no_select{
+    color: #888;
+}
+
+select:focus {
+    outline: none;
+}
+
+input[type=submit] {
+    background-color: #669900;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+label {
+    z-index: 1;
+    top: -10px;
+    position: absolute;
+}
+
+input[type=submit]:hover {
+    background-color: #334d00;
+}
+
+.checkbox {
+    display: inline;
+}
+
+table {
+    border-collapse: collapse;
+    width: 850px;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+td {
+    text-align: center;
+}
+.th_less{
+    font-size: smaller;
+    padding: 2px;
+}
+
+.th_align_right {
+    text-align: right;
+}
+
+table .plus, .minus{
+    text-align: center;
+    font-size: 20px;
+    padding: 4px;
+}
+table .plus{
+    color: green;
+}
+table .minus{
+    color: red;
+}
+
+tr:nth-child(even) {
+    background-color: aliceblue;
+}
+
+.costs {
+    color: darkorange;
+}
+
+.delete a {
+    color: darkred;
+    text-decoration: none;
+}
+.delete, a, input{
+    transition: color 0.15s ease;
+}
+.delete:hover {
+    background-color: red;
+}
+.delete:hover a {
+    color:white;
+}
+
+.update {
+    width: 25px !important;
+    color:dimgrey !important;
+    padding: 5px;
+    margin: 0;
+    background-color: #fff !important;
+    border: solid 1px #fff !important;
+}
+
+.update:hover {
+    background-color: aliceblue !important;
+    border: solid 1px #fff !important;
+    color:darkorange !important;
+}
+
+/* width */
+.price_width {
+    width: 77px !important;
+}
+
+.weight_width {
+    width: 45px;
+}
+
+.sale {
+    color: deepskyblue;
+}
+
+.quantity {
+    width: 45px !important;
+    padding-left: 7px;
+	margin: 0 8px;
+}
+
+.name {
+    width: 150px !important;
+}
+
+/* width */
+
+/* add */
+
+/* report */
+.report {
+    float: right;
+    margin-right: 40px;
+}
+
+.saved {
+    color:lightseagreen
+}
+
+.saved span {
+    color: steelblue;
+}
+
+.error {
+    color: red
+}
+/* report */

@@ -1,0 +1,16 @@
+<div class="container"><table>
+    <tr>
+        <th>название посуды</th>
+        <th>вес</th>
+        <th>цена</th>
+        <th>   </th>
+    </tr>
+    {{#list}}
+    <tr>
+        <td>{{name}}</td>
+        <td>{{weight}} г</td>
+        <td class="th_align_right">{{price}} грн</td>
+        <td class="delete"><a href="/glass/delete?id={{id}}">x</a></td>
+    </tr>
+    {{/list}}
+</table></div>
