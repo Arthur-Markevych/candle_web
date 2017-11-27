@@ -55,14 +55,14 @@ public class Candle {
     private Date creationDate = new Date();
 
     @Transient
-    public BigDecimal getPrice() {
+    public BigDecimal getPrice() throws Exception {
         BigDecimal wax;
         if (this.glass != null){
             if (this.glass.getWeight() < this.weight){
                 wax = BigDecimal.valueOf(this.weight - this.glass.getWeight()).
                         multiply(this.prices.getWax().divide(BigDecimal.valueOf(1000L))).add(this.glass.getPrice());
             } else {
-                throw new RuntimeException("свеча должна весть больше чем её посуда!");
+                throw new Exception("свеча должна весть больше чем её посуда!");
             }
         } else {
             wax = BigDecimal.valueOf(this.weight).multiply(this.prices.getWax().divide(BigDecimal.valueOf(1000L)));

@@ -44,7 +44,6 @@ public class WelcomeController {
         if (list != null) {
             try {
                 for (Candle candle: list){
-//                    candle.setPrice();
                     candle.setOutPrice(candle.getPrice().multiply(BigDecimal.valueOf(3L)));
                 }
             } catch (Exception e) {
@@ -91,6 +90,8 @@ public class WelcomeController {
                 candle.setDiy(diy==null?false:diy);
                 candle.setAroma(aroma==null?false:aroma);
                 candle.setQuantity(quantity>0L?quantity:0L);
+                if (candle.getGlass() != null && candle.getWeight() <= candle.getGlass().getWeight())
+                    throw new Exception("Неверный вес свечи, посуда должна весить меньше изделия!");
                 candleRepository.save(candle);
                 mv = getAll();
                 mv.addObject("report", Constants.SAVED);
@@ -150,6 +151,8 @@ public class WelcomeController {
         candle.setQuantity(quantity);
 
         try {
+            if (candle.getGlass() != null && candle.getWeight() <= candle.getGlass().getWeight())
+                throw new Exception("Неверный вес свечи, посуда должна весить меньше изделия!");
             candleRepository.save(candle);
             mv = getAll();
             mv.addObject("report", Constants.SAVED);
