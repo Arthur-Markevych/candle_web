@@ -1,0 +1,27 @@
+{{>layout/header}}
+
+<div class="container">
+    <table>
+        <form method="post">
+            <tr>
+                <th>id цены</th>
+                <th>парафин</th>
+                <th>фитель</th>
+                <th>краситель</th>
+                <th>ароматизатор</th>
+                <th></th>
+            </tr>
+            <tr>
+                <input type="number" value="{{prices.id}}" style="display: none">
+                <td><input type="text" name="name" value="{{prices.name}}"></td>
+                <td><input type="number" min="0.00" id="wax" name="wax" max="5000.00" step="0.1" placeholder="грн/кг" value="{{prices.wax}}" required></td>
+                <td> <input type="number" min="0.00" id="wick" name="wick" max="5000.00" step="0.1" placeholder="грн" value="{{prices.wick}}" required></td>
+                <td><input type="number" min="0.00" id="diy" name="diy" max="5000.00" step="0.1" placeholder="грн" value="{{prices.diy}}" required></td>
+                <td><input type="number" min="0.00" id="aroma" name="aroma" max="5000.00" step="0.1" placeholder="грн" value="{{prices.aroma}}" required></td>
+                <td><input type="submit" class="update change" value="изменить"></td>
+            </tr>
+        </form>
+    </table>
+</div>
+
+{{>layout/footer}}

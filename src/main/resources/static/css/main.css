@@ -1,4 +1,4 @@
-﻿body {
+body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -55,6 +55,14 @@ nav {
     color:blanchedalmond;
 }
 
+a{
+    color:green;
+}
+a:hover{
+
+    color:#ff0490;
+}
+
 /* add */
 
 input[type=number] {
@@ -70,7 +78,10 @@ select {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    text-align: center;
+    text-align: left;
+}
+table input[type=text]{
+    width:120px;
 }
 select {
     cursor: pointer;
@@ -105,6 +116,11 @@ input[type=submit]:hover {
     display: inline;
 }
 
+table input[type=checkbox] {
+    margin: 0 auto;
+}
+
+
 table {
     border-collapse: collapse;
     width: 850px;
@@ -122,11 +138,12 @@ td {
 }
 .th_less{
     font-size: smaller;
-    padding: 2px;
+    padding: 7px;
 }
 
 .th_align_right {
     text-align: right;
+    position:relative;
 }
 
 table .plus, .minus{
@@ -155,6 +172,7 @@ tr:nth-child(even) {
 }
 .delete, a, input{
     transition: color 0.15s ease;
+    text-decoration: none;
 }
 .delete:hover {
     background-color: red;
@@ -184,7 +202,7 @@ tr:nth-child(even) {
 }
 
 .weight_width {
-    width: 45px;
+    width: 45px!important;
 }
 
 .sale {
@@ -192,14 +210,37 @@ tr:nth-child(even) {
 }
 
 .quantity {
-    width: 45px !important;
-    padding-left: 7px;
-	margin: 0 8px;
+    width: 30px !important;
+    padding-left: 6px;
+    padding-right: 4px;
+    margin: 0 8px;
 }
 
 .name {
     width: 150px !important;
 }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button, select {
+    -webkit-appearance: none;
+}
+
+.weight_after:after{
+    position:absolute;
+    right:23px;
+    bottom:24.5px;
+    color: green;
+    content: "г";
+}
+#weight{
+    width:50px;
+    padding-left:10px;
+}
+
+.change{
+    width:75px!important;
+}
+
 
 /* width */
 

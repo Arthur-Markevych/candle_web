@@ -16,9 +16,9 @@
     </tr>
     {{#list}}
     <tr>
-        <form method="post" action="/candle/update">
+        <form method="post" action="/candle/quantity">
             <input type="number" name="id" value="{{id}}" style="display: none">
-        <td>{{name}}</td>
+            <td><a href="/update/candle?id={{id}}">{{name}}</a></td>
         {{#glass}}
         <td>{{glass.name}}</td>
         {{/glass}}

@@ -62,4 +62,39 @@ public class BoxController {
                     .addObject("message", "Ошибка удаления!");
         }
     }
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public ModelAndView updateBox(@RequestParam Long id, String name, BigDecimal price){
+        ModelAndView mv;
+        Box box = new Box();
+        box.setId(id);
+        box.setName(name);
+        box.setPrice(price);
+
+        try {
+            repository.save(box);
+            mv = getAll();
+            mv.addObject("message", "упаковка " + "<span class=\"saved_product_color\">" + box.getName() + "</span>" + " обновлена");
+            mv.addObject("report", Constants.SAVED);
+            return mv;
+        } catch (Exception e) {
+            mv = getAll();
+            mv.addObject("report", Constants.ERROR);
+            mv.addObject("message", "Ошибка обновления: " + e.getMessage());
+            return mv;
+        }
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.GET)
+    public ModelAndView updateBox(@RequestParam Long id){
+        ModelAndView mv = new ModelAndView("update/box");
+        if (id != null){
+            Box box = repository.findOne(id);
+            mv.addObject("box", box);
+            mv.addObject("title", "Изменение этикетки");
+            return mv;
+        }
+
+        return getAll();
+    }
 }

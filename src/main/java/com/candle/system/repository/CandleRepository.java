@@ -18,6 +18,7 @@ public interface CandleRepository extends CrudRepository<Candle, Long> {
     public void updateQuantity(@Param("id") Long id, @Param("quantity") Long quantity);
 
 
-    @Query(value = "SELECT new com.candle.system.configurations.Amount( sum(c.quantity), sum(c.price * c.quantity)) FROM Candle c")
-    public Amount getAmount();
+    /*@Query(value = "SELECT new com.candle.system.configurations.Amount( sum(c.quantity), sum(c.price * c.quantity)) FROM Candle c")
+    public Amount getAmount();*/
+
 }

@@ -23,17 +23,17 @@ public class Candle {
 
     private Long quantity;
 
+    //    @JsonInclude
+    @Transient
+    @Column(name = "incoming_price")
+    private BigDecimal price;
+
     @Transient
     private BigDecimal outPrice;
 
     public void setOutPrice(BigDecimal outPrice) {
         this.outPrice = outPrice;
     }
-
-    //    @JsonInclude
-//    @Transient
-    @Column(name = "incoming_price")
-    private BigDecimal price;
 
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH, CascadeType.PERSIST})
     @JoinColumn(name = "box_id")
@@ -54,11 +54,31 @@ public class Candle {
     @Temporal(TemporalType.TIMESTAMP)
     private Date creationDate = new Date();
 
+    @Transient
     public BigDecimal getPrice() {
-        return price;
+        BigDecimal wax;
+        if (this.glass != null){
+            if (this.glass.getWeight() < this.weight){
+                wax = BigDecimal.valueOf(this.weight - this.glass.getWeight()).
+                        multiply(this.prices.getWax().divide(BigDecimal.valueOf(1000L))).add(this.glass.getPrice());
+            } else {
+                throw new RuntimeException("свеча должна весть больше чем её посуда!");
+            }
+        } else {
+            wax = BigDecimal.valueOf(this.weight).multiply(this.prices.getWax().divide(BigDecimal.valueOf(1000L)));
+        }
+        BigDecimal sum;
+        BigDecimal label = this.label != null ? this.label.getPrice() : BigDecimal.ZERO;
+        BigDecimal box = this.box != null ? this.box.getPrice() :  BigDecimal.ZERO;
+        BigDecimal aroma = this.aroma != null && this.aroma != false ? this.prices.getAroma() :  BigDecimal.ZERO;
+        BigDecimal diy = this.diy != null &&this.diy != false ? this.prices.getDiy() :  BigDecimal.ZERO;
+
+        sum = label.add(box).add(aroma).add(diy).add(wax).add(this.prices.getWick());
+
+        return sum;
     }
 
-    public void setPrice() throws Exception{
+/*    public void setPrice() throws Exception{
         BigDecimal wax;
         if (this.glass != null){
             if (this.glass.getWeight() < this.weight){
@@ -73,13 +93,13 @@ public class Candle {
         BigDecimal sum;
         BigDecimal label = this.label != null ? this.label.getPrice() : BigDecimal.ZERO;
         BigDecimal box = this.box != null ? this.box.getPrice() :  BigDecimal.ZERO;
-        BigDecimal aroma = this.aroma != null ? this.prices.getAroma() :  BigDecimal.ZERO;
-        BigDecimal diy = this.diy != null ? this.prices.getDiy() :  BigDecimal.ZERO;
+        BigDecimal aroma = this.aroma != null && this.aroma != false ? this.prices.getAroma() :  BigDecimal.ZERO;
+        BigDecimal diy = this.diy != null &&this.diy != false ? this.prices.getDiy() :  BigDecimal.ZERO;
 
         sum = label.add(box).add(aroma).add(diy).add(wax).add(this.prices.getWick());
 
         this.price = sum;
-    }
+    }*/
 
 
     public Candle() {
